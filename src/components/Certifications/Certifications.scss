@@ -1,0 +1,238 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.certifications {
+  @include section-padding;
+  position: relative;
+
+  &__container {
+    @include container;
+  }
+
+  // ── Stats ──────────────────────────────────────────────────────────────
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+    margin-bottom: $space-16;
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include below-md {
+      margin-bottom: $space-10;
+    }
+  }
+
+  &__stat-card {
+    @include glass-card;
+    padding: $space-6;
+    text-align: center;
+
+    @include below-md {
+      padding: $space-4;
+    }
+  }
+
+  &__stat-icon {
+    font-size: $font-size-3xl;
+    margin-bottom: $space-3;
+  }
+
+  &__stat-num {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-black;
+    margin-bottom: $space-1;
+
+    @include below-md {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__stat-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-gray-500;
+  }
+
+  // ── Cert list ──────────────────────────────────────────────────────────
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-4;
+    margin-bottom: $space-16;
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include below-md {
+      margin-bottom: $space-10;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    padding: $space-5;
+    border-radius: $radius-2xl;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.3) 100%);
+    transition: $transition-slow;
+    cursor: pointer;
+
+    &:hover {
+      border-color: rgba(99, 102, 241, 0.25);
+    }
+  }
+
+  &__item-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: $radius-xl;
+    @include flex-center;
+    font-size: $font-size-2xl;
+    flex-shrink: 0;
+  }
+
+  &__item-meta {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__item-title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-white;
+    margin-bottom: 2px;
+  }
+
+  &__item-org {
+    font-size: $font-size-xs;
+    color: $color-gray-500;
+  }
+
+  &__item-year {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-primary-light;
+    flex-shrink: 0;
+  }
+
+  // ── Education ──────────────────────────────────────────────────────────
+  &__edu-heading {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-black;
+    color: $color-white;
+    text-align: center;
+    margin-bottom: $space-8;
+
+    span {
+      color: $color-primary-light;
+    }
+  }
+
+  &__edu-timeline {
+    position: relative;
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  &__edu-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), transparent);
+
+    @include below-md {
+      left: 1rem;
+    }
+  }
+
+  &__edu-row {
+    position: relative;
+    display: flex;
+    margin-bottom: $space-8;
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+
+    @include below-md {
+      justify-content: flex-start !important;
+    }
+  }
+
+  &__edu-dot {
+    position: absolute;
+    left: 50%;
+    top: $space-6;
+    transform: translateX(-50%);
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: $radius-full;
+    border: 2px solid $color-primary;
+    background: $color-bg;
+
+    @include below-md {
+      left: 1rem;
+    }
+  }
+
+  &__edu-card {
+    width: 41.666%;
+    padding: $space-5;
+    border-radius: $radius-2xl;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $gradient-card;
+    transition: $transition-slow;
+
+    @include below-md {
+      width: 100%;
+      margin-left: 2.5rem;
+      text-align: left !important;
+    }
+
+    &:hover {
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+  }
+
+  &__edu-row--right &__edu-card {
+    text-align: right;
+  }
+
+  &__edu-degree {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $space-1;
+  }
+
+  &__edu-school {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-primary-light;
+    margin-bottom: $space-1;
+  }
+
+  &__edu-year {
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+  }
+
+  &__edu-grade {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $color-emerald-light;
+    margin-top: $space-1;
+  }
+}

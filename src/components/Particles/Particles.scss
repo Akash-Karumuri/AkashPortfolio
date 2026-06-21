@@ -1,0 +1,9 @@
+@use '../../styles/variables' as *;
+
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-particles;
+  opacity: 0.6;
+}

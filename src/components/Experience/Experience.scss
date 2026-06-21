@@ -1,0 +1,179 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.experience {
+  @include section-padding;
+  position: relative;
+
+  &__container {
+    @include container;
+    max-width: 56rem;
+  }
+
+  // ── Timeline ───────────────────────────────────────────────────────────
+  &__timeline {
+    position: relative;
+  }
+
+  &__timeline-line {
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), rgba(99, 102, 241, 0.2), transparent);
+
+    @include xs {
+      left: 1.25rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 5rem;
+
+    @include xs {
+      padding-left: 3rem;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: 1.5rem;
+    top: $space-6;
+    width: 1rem;
+    height: 1rem;
+    border-radius: $radius-full;
+    border: 2px solid $color-primary;
+    background: $color-bg;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+
+    @include xs {
+      left: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
+
+  // ── Card ───────────────────────────────────────────────────────────────
+  &__card {
+    @include glass-card;
+    padding: $space-8;
+
+    @include below-md {
+      padding: $space-5;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $space-4;
+    margin-bottom: $space-6;
+  }
+
+  &__role-row {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    flex-wrap: wrap;
+    margin-bottom: $space-1;
+  }
+
+  &__role {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+
+    @include below-md {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__badge {
+    padding: 2px $space-2;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    border-radius: $radius-full;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    background: rgba(16, 185, 129, 0.15);
+    color: $color-emerald-light;
+  }
+
+  &__company-row {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    flex-wrap: wrap;
+  }
+
+  &__company {
+    font-weight: $font-weight-semibold;
+    color: $color-primary-light;
+  }
+
+  &__location {
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+  }
+
+  &__dates {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  &__period {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-gray-400;
+  }
+
+  &__duration {
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+    margin-top: 2px;
+  }
+
+  // ── Bullets ────────────────────────────────────────────────────────────
+  &__bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    margin-bottom: $space-6;
+  }
+
+  &__bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3;
+
+    p {
+      font-size: $font-size-sm;
+      color: $color-gray-400;
+      line-height: 1.7;
+    }
+  }
+
+  &__bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: $radius-full;
+    background: $color-primary;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  // ── Tech tags ──────────────────────────────────────────────────────────
+  &__tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+
+  &__tech-tag {
+    @include tech-tag;
+  }
+}

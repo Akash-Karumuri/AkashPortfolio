@@ -1,0 +1,176 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.projects {
+  @include section-padding;
+  position: relative;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 40% at 50% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @include lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // ── Card ───────────────────────────────────────────────────────────────
+  &__card {
+    position: relative;
+    border-radius: $radius-2xl;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.5) 100%);
+    transition: $transition-slower;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &__card-bar {
+    height: 4px;
+    width: 100%;
+  }
+
+  // ── Media area ─────────────────────────────────────────────────────────
+  &__media {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+  }
+
+  &__media-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  &__media-emoji {
+    font-size: 4.5rem;
+    margin-bottom: $space-3;
+  }
+
+  &__media-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    opacity: 0.6;
+  }
+
+  &__media-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-size: 20px 20px;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: $transition-slow;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__overlay-btn {
+    padding: $space-2 $space-4;
+    border-radius: $radius-lg;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    color: $color-white;
+    transition: $transition-base;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--ghost {
+      background: transparent;
+      border: 1px solid;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  // ── Body ───────────────────────────────────────────────────────────────
+  &__body {
+    padding: $space-6;
+
+    @include below-md {
+      padding: $space-5;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $space-2;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    color: $color-gray-400;
+    line-height: 1.7;
+    margin-bottom: $space-5;
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-2;
+    margin-bottom: $space-5;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-xs;
+    color: $color-gray-500;
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-1;
+  }
+
+  &__tech-tag {
+    padding: 2px $space-2;
+    font-size: $font-size-xs;
+    border-radius: $radius-sm;
+    border: 1px solid;
+    font-weight: $font-weight-medium;
+  }
+}

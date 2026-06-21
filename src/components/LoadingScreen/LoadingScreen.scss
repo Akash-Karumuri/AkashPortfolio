@@ -1,0 +1,73 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: $color-bg;
+  @include flex-center;
+  flex-direction: column;
+  z-index: $z-loading;
+
+  &__content {
+    text-align: center;
+    margin-bottom: $space-8;
+  }
+
+  &__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: $radius-2xl;
+    background: linear-gradient(135deg, $color-primary, $color-violet);
+    @include flex-center;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-black;
+    color: $color-white;
+    margin-inline: auto;
+    margin-bottom: $space-4;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+  }
+
+  &__name {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-black;
+    color: $color-white;
+    letter-spacing: -0.02em;
+
+    span {
+      color: $color-primary-light;
+    }
+  }
+
+  &__role {
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    margin-top: $space-1;
+  }
+
+  &__bar-track {
+    width: 16rem;
+    height: 3px;
+    border-radius: $radius-full;
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+
+    @include xs {
+      width: 12rem;
+    }
+  }
+
+  &__bar-fill {
+    height: 100%;
+    border-radius: $radius-full;
+    background: linear-gradient(90deg, $color-primary, $color-violet);
+    transition: width 0.1s linear;
+  }
+
+  &__percent {
+    font-size: $font-size-xs;
+    color: $color-gray-700;
+    margin-top: $space-3;
+    font-variant-numeric: tabular-nums;
+  }
+}

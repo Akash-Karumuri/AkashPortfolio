@@ -1,0 +1,116 @@
+// ─── COLOR PALETTE ───────────────────────────────────────────────────────────
+$color-bg:              #000000;
+$color-bg-card:         rgba(255, 255, 255, 0.02);
+$color-bg-card-hover:   rgba(255, 255, 255, 0.04);
+
+$color-primary:         #6366f1;
+$color-primary-hover:   #4f52e0;
+$color-primary-light:   #818cf8;
+$color-primary-xlight:  #a5b4fc;
+$color-primary-dark:    #4338ca;
+
+$color-violet:          #8b5cf6;
+$color-violet-light:    #a78bfa;
+
+$color-emerald:         #10b981;
+$color-emerald-light:   #34d399;
+
+$color-white:           #ffffff;
+$color-gray-100:        #f3f4f6;
+$color-gray-300:        #d1d5db;
+$color-gray-400:        #9ca3af;
+$color-gray-500:        #6b7280;
+$color-gray-600:        #4b5563;
+$color-gray-700:        #374151;
+$color-gray-800:        #1f2937;
+$color-gray-900:        #111827;
+
+// ─── GRADIENTS ───────────────────────────────────────────────────────────────
+$gradient-primary:      linear-gradient(135deg, $color-primary-xlight 0%, $color-primary-light 40%, $color-primary 100%);
+$gradient-card:         linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(0, 0, 0, 0.3) 100%);
+$gradient-avatar:       linear-gradient(135deg, $color-primary 0%, $color-violet 100%);
+$gradient-hero-bg:      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99, 102, 241, 0.18) 0%, transparent 60%);
+
+// ─── TYPOGRAPHY ──────────────────────────────────────────────────────────────
+$font-primary:          'Inter', system-ui, -apple-system, sans-serif;
+
+$font-size-xs:          0.75rem;    // 12px
+$font-size-sm:          0.875rem;   // 14px
+$font-size-base:        1rem;       // 16px
+$font-size-lg:          1.125rem;   // 18px
+$font-size-xl:          1.25rem;    // 20px
+$font-size-2xl:         1.5rem;     // 24px
+$font-size-3xl:         1.875rem;   // 30px
+$font-size-4xl:         2.25rem;    // 36px
+$font-size-5xl:         3rem;       // 48px
+$font-size-6xl:         3.75rem;    // 60px
+$font-size-7xl:         4.5rem;     // 72px
+
+$font-weight-light:     300;
+$font-weight-normal:    400;
+$font-weight-medium:    500;
+$font-weight-semibold:  600;
+$font-weight-bold:      700;
+$font-weight-extrabold: 800;
+$font-weight-black:     900;
+
+// ─── SPACING ─────────────────────────────────────────────────────────────────
+$space-1:   0.25rem;
+$space-2:   0.5rem;
+$space-3:   0.75rem;
+$space-4:   1rem;
+$space-5:   1.25rem;
+$space-6:   1.5rem;
+$space-8:   2rem;
+$space-10:  2.5rem;
+$space-12:  3rem;
+$space-16:  4rem;
+$space-20:  5rem;
+$space-24:  6rem;
+$space-28:  7rem;
+$space-32:  8rem;
+
+// ─── BORDER RADIUS ───────────────────────────────────────────────────────────
+$radius-sm:     0.375rem;
+$radius-md:     0.5rem;
+$radius-lg:     0.75rem;
+$radius-xl:     1rem;
+$radius-2xl:    1.25rem;
+$radius-3xl:    1.5rem;
+$radius-full:   9999px;
+
+// ─── BORDERS ─────────────────────────────────────────────────────────────────
+$border-subtle:   1px solid rgba(255, 255, 255, 0.08);
+$border-primary:  1px solid rgba(99, 102, 241, 0.3);
+$border-primary-hover: 1px solid rgba(99, 102, 241, 0.5);
+$border-emerald:  1px solid rgba(16, 185, 129, 0.25);
+
+// ─── SHADOWS ─────────────────────────────────────────────────────────────────
+$shadow-primary:  0 0 80px rgba(99, 102, 241, 0.15);
+$shadow-glow:     0 20px 60px rgba(99, 102, 241, 0.15);
+$shadow-btn:      0 8px 25px rgba(99, 102, 241, 0.25);
+
+// ─── TRANSITIONS ─────────────────────────────────────────────────────────────
+$transition-fast:   all 0.15s ease;
+$transition-base:   all 0.2s ease;
+$transition-slow:   all 0.3s ease;
+$transition-slower: all 0.5s ease;
+
+// ─── BREAKPOINTS ─────────────────────────────────────────────────────────────
+$bp-xs:   375px;
+$bp-sm:   640px;
+$bp-md:   768px;
+$bp-lg:   1024px;
+$bp-xl:   1280px;
+$bp-2xl:  1536px;
+
+// ─── LAYOUT ──────────────────────────────────────────────────────────────────
+$max-width:         1280px;
+$container-padding: $space-6;
+
+// ─── Z-INDEX ─────────────────────────────────────────────────────────────────
+$z-particles:   0;
+$z-content:     20;
+$z-nav:         50;
+$z-loading:     100;
+$z-glow:        10;

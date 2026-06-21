@@ -1,0 +1,97 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+
+  @include xs {
+    font-size: 14px;
+  }
+}
+
+body {
+  background: $color-bg;
+  color: $color-white;
+  font-family: $font-primary;
+  overflow-x: hidden;
+  line-height: 1.6;
+  @include custom-scrollbar;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: $color-white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  display: block;
+}
+
+// ─── UTILITY CLASSES ─────────────────────────────────────────────────────────
+.gradient-text {
+  @include gradient-text;
+}
+
+.section-eyebrow {
+  @include eyebrow-badge;
+  margin-bottom: $space-4;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-16;
+
+  @include below-md {
+    margin-bottom: $space-10;
+  }
+
+  h2 {
+    @include section-title;
+    margin-bottom: $space-4;
+  }
+
+  p {
+    color: $color-gray-500;
+    font-size: $font-size-base;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+}
+
+@include reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
