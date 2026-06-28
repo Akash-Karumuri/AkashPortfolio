@@ -48,10 +48,10 @@ export default function Projects() {
                 />
 
                 <div className={`projects__overlay${hov === i ? " projects__overlay--visible" : ""}`}>
-                  <a href={p.live} className="projects__overlay-btn" style={{ background: p.color }}>
+                  <a href={p.live} target="_blank" className="projects__overlay-btn" style={{ background: p.color }}>
                     Live Demo →
                   </a>
-                  <a href={p.github} className="projects__overlay-btn projects__overlay-btn--ghost" style={{ borderColor: p.color + "60" }}>
+                  <a href={p.github} target="_blank" className="projects__overlay-btn projects__overlay-btn--ghost" style={{ borderColor: p.color + "60" }}>
                     GitHub
                   </a>
                 </div>

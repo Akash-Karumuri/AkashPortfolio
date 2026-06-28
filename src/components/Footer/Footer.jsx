@@ -16,8 +16,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__brand">
-          <div className="footer__mark">A</div>
-          <span className="footer__name">K.N.P.R. Akash</span>
+          <div className="footer__mark">AK</div>
+          <span className="footer__name">Akash Karumuri</span>
         </div>
 
         <p className="footer__copy">

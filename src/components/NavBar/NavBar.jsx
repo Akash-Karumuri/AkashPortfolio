@@ -26,7 +26,7 @@ export default function NavBar({ active }) {
         <div className="navbar__logo">
           <div className="navbar__logo-mark">AK</div>
           <span className="navbar__logo-text">
-            KNPR<span className="navbar__logo-accent">.Akash</span>
+          <span className="navbar__logo-accent"> Akash</span> Karumuri
           </span>
         </div>
 
