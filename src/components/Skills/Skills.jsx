@@ -3,9 +3,9 @@ import { SKILLS, SKILL_CATEGORIES } from "../../data";
 import "./Skills.scss";
 import { FaReact } from "react-icons/fa";
 
-const OUTER_R = 200;
-const INNER_R = 120;
-const CENTER = 280;
+const OUTER_R = 386;
+const INNER_R = 235;
+const CENTER = 538;
 
 export default function Skills() {
   const [hovered, setHovered] = useState(null);
@@ -62,7 +62,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="skills__layout">
+        <div className="skills__layout skills__layout--centered">
           {/* ── Wheel ── */}
           <div className="skills__wheel-wrap">
             <svg
@@ -82,7 +82,7 @@ export default function Skills() {
               <circle
                 cx={CENTER}
                 cy={CENTER}
-                r={OUTER_R + 30}
+                r={OUTER_R + 59}
                 fill="none"
                 stroke="rgba(99,102,241,0.06)"
                 strokeWidth="1"
@@ -99,7 +99,7 @@ export default function Skills() {
               <circle
                 cx={CENTER}
                 cy={CENTER}
-                r={INNER_R + 50}
+                r={INNER_R + 101}
                 fill="none"
                 stroke="rgba(99,102,241,0.08)"
                 strokeWidth="1"
@@ -117,7 +117,7 @@ export default function Skills() {
               {filtered.map((skill, i) => {
                 const base = (i / count) * Math.PI * 2 - Math.PI / 2;
                 const angle = base + rotation;
-                const r = i % 2 === 0 ? OUTER_R : INNER_R + 50;
+                const r = i % 2 === 0 ? OUTER_R : INNER_R + 101;
                 const x = CENTER + r * Math.cos(angle);
                 const y = CENTER + r * Math.sin(angle);
                 const isHov = hovered?.name === skill.name;
@@ -130,12 +130,12 @@ export default function Skills() {
                     style={{ cursor: "pointer" }}
                   >
                     {isHov && (
-                      <circle cx={0} cy={0} r={28} fill={skill.color + "22"} />
+                      <circle cx={0} cy={0} r={64} fill={skill.color + "22"} />
                     )}
                     <circle
                       cx={0}
                       cy={0}
-                      r={22}
+                      r={50}
                       fill="rgba(10,10,20,0.95)"
                       stroke={isHov ? skill.color : "rgba(99,102,241,0.3)"}
                       strokeWidth={isHov ? 1.5 : 1}
@@ -144,18 +144,18 @@ export default function Skills() {
                       const Icon = skill.icon;
 
                       return (
-                        <foreignObject x={-12} y={-12} width={24} height={24}>
+                        <foreignObject x={-27} y={-27} width={53} height={53}>
                           <div
                             style={{
-                              width: "24px",
-                              height: "24px",
+                              width: "53px",
+                              height: "53px",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
                             }}
                           >
                             <Icon
-                              size={18}
+                              size={41}
                               color={isHov ? skill.color : "#9ca3af"}
                             />
                           </div>
@@ -165,9 +165,9 @@ export default function Skills() {
                     {isHov && (
                       <text
                         x={0}
-                        y={32}
+                        y={74}
                         textAnchor="middle"
-                        fontSize="9"
+                        fontSize="18"
                         fill={skill.color}
                         fontWeight="600"
                       >
@@ -181,7 +181,7 @@ export default function Skills() {
               <circle
                 cx={CENTER}
                 cy={CENTER}
-                r={55}
+                r={109}
                 fill="rgba(10,10,20,0.98)"
                 stroke="rgba(99,102,241,0.4)"
                 strokeWidth="1.5"
@@ -189,24 +189,24 @@ export default function Skills() {
               <circle
                 cx={CENTER}
                 cy={CENTER}
-                r={45}
+                r={90}
                 fill="rgba(97,218,251,0.05)"
                 stroke="rgba(97,218,251,0.2)"
                 strokeWidth="1"
               />
               <foreignObject
-                x={CENTER - 18}
-                y={CENTER - 30}
-                width={36}
-                height={36}
+                x={CENTER - 37}
+                y={CENTER - 60}
+                width={74}
+                height={74}
               >
-                <FaReact size={36} color="#61DAFB" />
+                <FaReact size={74} color="#61DAFB" />
               </foreignObject>{" "}
               <text
                 x={CENTER}
-                y={CENTER + 14}
+                y={CENTER + 31}
                 textAnchor="middle"
-                fontSize="10"
+                fontSize="20"
                 fill="#61DAFB"
                 fontWeight="700"
                 letterSpacing="1"
@@ -219,7 +219,7 @@ export default function Skills() {
                   const i = filtered.findIndex((s) => s.name === hovered.name);
                   const base = (i / count) * Math.PI * 2 - Math.PI / 2;
                   const angle = base + rotation;
-                  const r = i % 2 === 0 ? OUTER_R : INNER_R + 50;
+                  const r = i % 2 === 0 ? OUTER_R : INNER_R + 101;
                   return (
                     <line
                       x1={CENTER}
@@ -234,121 +234,6 @@ export default function Skills() {
                   );
                 })()}
             </svg>
-          </div>
-
-          {/* ── Right panel ── */}
-          <div className="skills__panel">
-            {hovered ? (
-              <div
-                className="skills__detail"
-                style={{
-                  borderColor: hovered.color + "33",
-                  background: hovered.color + "08",
-                }}
-              >
-                <div className="skills__detail-header">
-                  <div
-                    className="skills__detail-icon"
-                    style={{
-                      background: hovered.color + "20",
-                      border: `1px solid ${hovered.color}40`,
-                    }}
-                  >
-                    {(() => {
-                      const Icon = hovered.icon;
-                      return <Icon size={30} color={hovered.color} />;
-                    })()}{" "}
-                  </div>
-                  <div className="skills__detail-meta">
-                    <div className="skills__detail-name">{hovered.name}</div>
-                    <div
-                      className="skills__detail-cat"
-                      style={{ color: hovered.color }}
-                    >
-                      {hovered.category}
-                    </div>
-                  </div>
-                  <div
-                    className="skills__detail-level"
-                    style={{ color: hovered.color }}
-                  >
-                    {hovered.level}%
-                  </div>
-                </div>
-                <div className="skills__progress-track">
-                  <div
-                    className="skills__progress-fill"
-                    style={{
-                      width: hovered.level + "%",
-                      background: `linear-gradient(90deg, ${hovered.color}88, ${hovered.color})`,
-                    }}
-                  />
-                </div>
-              </div>
-            ) : (
-              <div className="skills__hint">
-                <div className="skills__hint-title">
-                  Hover any skill to explore
-                </div>
-                <div className="skills__hint-sub">
-                  The wheel shows {filtered.length} technologies orbiting the
-                  React core
-                </div>
-              </div>
-            )}
-
-            {/* Skills grid */}
-            <div className="skills__grid">
-              {filtered.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="skills__grid-item"
-                  style={{
-                    borderColor:
-                      hovered?.name === skill.name
-                        ? skill.color + "44"
-                        : "rgba(255,255,255,0.06)",
-                    background:
-                      hovered?.name === skill.name
-                        ? skill.color + "10"
-                        : "rgba(255,255,255,0.02)",
-                  }}
-                  onMouseEnter={() => {
-                    setHovered(skill);
-                    pausedRef.current = true;
-                  }}
-                  onMouseLeave={() => {
-                    setHovered(null);
-                    pausedRef.current = false;
-                  }}
-                >
-                  <div
-                    className="skills__grid-icon"
-                    style={{
-                      background: skill.color + "18",
-                      border: `1px solid ${skill.color}30`,
-                    }}
-                  >
-                    {(() => {
-                      const Icon = skill.icon;
-                      return <Icon size={18} color={skill.color} />;
-                    })()}{" "}
-                  </div>
-                  <div className="skills__grid-info">
-                    <div className="skills__grid-name">{skill.name}</div>
-                    <div className="skills__grid-bar">
-                      <div
-                        className="skills__grid-fill"
-                        style={{
-                          width: skill.level + "%",
-                          background: skill.color,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

@@ -67,7 +67,7 @@ svg {
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-16;
+  margin-bottom: $space-10;
 
   @include below-md {
     margin-bottom: $space-10;
@@ -87,6 +87,7 @@ svg {
 }
 
 @include reduced-motion {
+
   *,
   *::before,
   *::after {

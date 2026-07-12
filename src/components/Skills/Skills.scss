@@ -23,7 +23,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: $space-2;
-    margin-bottom: $space-12;
 
     @include below-md {
       gap: $space-1;
@@ -243,4 +242,23 @@
     height: 100%;
     border-radius: $radius-full;
   }
+}
+
+.skills__layout--centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills__wheel-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.skills__wheel {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
 }
