@@ -2,16 +2,17 @@ import { useEffect, useRef } from "react";
 import { useTyping } from "../../hooks";
 import { TYPING_WORDS } from "../../data";
 import "./Hero.scss";
+import profileImg from "../../assets/profile.jpeg";
 
 export default function Hero() {
-  const typed   = useTyping(TYPING_WORDS);
+  const typed = useTyping(TYPING_WORDS);
   const glowRef = useRef(null);
 
   useEffect(() => {
     const fn = (e) => {
       if (glowRef.current) {
         glowRef.current.style.left = e.clientX + "px";
-        glowRef.current.style.top  = e.clientY + "px";
+        glowRef.current.style.top = e.clientY + "px";
       }
     };
     window.addEventListener("mousemove", fn);
@@ -58,10 +59,16 @@ export default function Hero() {
           </p>
 
           <div className="hero__actions">
-            <button className="hero__btn-primary" onClick={() => scrollTo("projects")}>
+            <button
+              className="hero__btn-primary"
+              onClick={() => scrollTo("projects")}
+            >
               View Projects <span className="hero__btn-arrow">→</span>
             </button>
-            <button className="hero__btn-ghost" onClick={() => scrollTo("contact")}>
+            <button
+              className="hero__btn-ghost"
+              onClick={() => scrollTo("contact")}
+            >
               Contact Me
             </button>
           </div>
@@ -83,22 +90,27 @@ export default function Hero() {
 
         {/* ── Right col — avatar ── */}
         <div className="hero__right">
-          <div className="hero__avatar-wrap">
-            <div className="hero__orbit hero__orbit--outer" />
-            <div className="hero__orbit hero__orbit--inner" />
+  <div className="hero__avatar-wrap">
+    <div className="hero__orbit hero__orbit--outer" />
+    <div className="hero__orbit hero__orbit--inner" />
 
-            <div className="hero__avatar-card">
-              <div className="hero__avatar-grid" />
-              <div className="hero__avatar-body">
-                <div className="hero__avatar-letter">A</div>
-                <div className="hero__avatar-name">K.N.P.R. Akash</div>
-                <div className="hero__avatar-role">Frontend Developer</div>
-                <span className="hero__float-tag hero__float-tag--react">⚛️ React</span>
-                <span className="hero__float-tag hero__float-tag--redux">🔮 Redux</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="hero__avatar-body">
+      <img
+        src={profileImg}
+        alt="Akash"
+        className="hero__avatar-image"
+      />
+
+      <h3 className="hero__avatar-name">
+        K.N.P.R. Akash
+      </h3>
+
+      <p className="hero__avatar-role">
+        Frontend Developer
+      </p>
+    </div>
+  </div>
+</div>
       </div>
 
       {/* Scroll indicator */}

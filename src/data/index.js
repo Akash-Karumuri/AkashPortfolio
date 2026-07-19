@@ -175,8 +175,8 @@ export const PROJECTS = [
     color: "#0ea5e9",
     accent: "#7dd3fc",
     emoji: "🌊",
-    live: "#",
-    github: "#",
+    live: "https://akashkarumuri.pythonanywhere.com/",
+    github: "https://github.com/Akash-Karumuri/Tourism-Django-/tree/main",
     feat: [
       "3D Gallery View",
       "Itinerary Planner",
