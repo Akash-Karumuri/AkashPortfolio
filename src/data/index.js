@@ -175,8 +175,8 @@ export const PROJECTS = [
     color: "#0ea5e9",
     accent: "#7dd3fc",
     emoji: "🌊",
-    live: "https://akashkarumuri.pythonanywhere.com/",
-    github: "https://github.com/Akash-Karumuri/Tourism-Django-/tree/main",
+    live: "https://water-fall-tour.vercel.app/",
+    github: "https://github.com/Akash-Karumuri/WaterFallTour",
     feat: [
       "3D Gallery View",
       "Itinerary Planner",
