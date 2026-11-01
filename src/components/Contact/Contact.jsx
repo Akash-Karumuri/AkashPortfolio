@@ -4,12 +4,19 @@ import "./Contact.scss";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [emailDraftOpened, setEmailDraftOpened] = useState(false);
 
   const handle = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = () => {
-    if (form.name && form.email && form.message) setSent(true);
+  const submit = (event) => {
+    event.preventDefault();
+    const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    );
+
+    window.location.href = `mailto:karumuriakash888@gmail.com?subject=${subject}&body=${body}`;
+    setEmailDraftOpened(true);
   };
 
   return (
@@ -56,45 +63,52 @@ export default function Contact() {
 
           {/* ── Form ── */}
           <div className="contact__form-wrap">
-            {sent ? (
+            {emailDraftOpened ? (
               <div className="contact__success">
-                <div className="contact__success-emoji">✅</div>
-                <div className="contact__success-title">Message Sent!</div>
-                <p className="contact__success-sub">I'll get back to you within 24 hours.</p>
+                <div className="contact__success-title">Email draft opened</div>
+                <p className="contact__success-sub">
+                  Review and send the message from your email app.
+                </p>
               </div>
             ) : (
-              <div className="contact__form">
+              <form className="contact__form" onSubmit={submit}>
                 <div className="contact__field">
-                  <label>Your Name</label>
+                  <label htmlFor="contact-name">Your Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     value={form.name}
                     onChange={handle("name")}
                     placeholder="John Doe"
+                    required
                   />
                 </div>
                 <div className="contact__field">
-                  <label>Email Address</label>
+                  <label htmlFor="contact-email">Email Address</label>
                   <input
+                    id="contact-email"
                     type="email"
                     value={form.email}
                     onChange={handle("email")}
                     placeholder="john@example.com"
+                    required
                   />
                 </div>
                 <div className="contact__field">
-                  <label>Message</label>
+                  <label htmlFor="contact-message">Message</label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     value={form.message}
                     onChange={handle("message")}
                     placeholder="Tell me about your project or opportunity..."
+                    required
                   />
                 </div>
-                <button className="contact__submit" onClick={submit}>
+                <button className="contact__submit" type="submit">
                   Send Message →
                 </button>
-              </div>
+              </form>
             )}
           </div>
         </div>
